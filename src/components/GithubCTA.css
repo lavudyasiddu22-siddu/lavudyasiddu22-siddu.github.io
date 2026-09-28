@@ -1,0 +1,43 @@
+.github-cta-section {
+  padding: 4rem 0;
+}
+
+.cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 58, 138, 0.2) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cta-content h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
+}
+
+.cta-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .cta-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+  
+  .cta-content h2 {
+    text-align: center;
+  }
+}
