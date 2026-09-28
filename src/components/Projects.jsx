@@ -1,10 +1,17 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/portfolioData';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard';
 import './Projects.css';
 
 const Projects = () => {
-  const { projects } = portfolioData;
+  const [filter, setFilter] = useState('All');
+  
+  const categories = ['All', 'AI', 'Web', 'Computer Vision', 'Cybersecurity', 'Education', 'Monitoring'];
+  
+  const filteredProjects = filter === 'All' 
+    ? projects 
+    : projects.filter(p => p.category === filter);
 
   return (
     <section id="projects" className="projects-section">
@@ -16,41 +23,24 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <h2>Featured Projects</h2>
+          <div className="title-underline"></div>
+          <p className="section-subtitle">Selected projects where I explore AI, software engineering, and real-world applications.</p>
           
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <motion.div 
+          <div className="project-filters">
+            {categories.map((cat, index) => (
+              <button 
                 key={index}
-                className="project-card glass-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                onClick={() => setFilter(cat)}
               >
-                <div className="project-content">
-                  <h3 className="project-title">{project.name}</h3>
-                  <p className="project-description">{project.description}</p>
-                  
-                  <div className="project-tech">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="project-actions">
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                      <FaGithub /> GitHub
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                      <FaExternalLinkAlt /> Live Demo
-                    </a>
-                  )}
-                </div>
-              </motion.div>
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="projects-grid">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
         </motion.div>

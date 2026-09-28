@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/portfolioData';
+import { info } from '../data/info';
 import { FaGithub } from 'react-icons/fa';
 import './GithubCTA.css';
 
 const GithubCTA = () => {
-  const { links } = portfolioData;
-
   return (
     <section className="github-cta-section">
       <div className="container">
@@ -19,10 +17,11 @@ const GithubCTA = () => {
           <div className="cta-content">
             <h2>Explore My GitHub</h2>
             <p>Explore my projects, experiments, and development work.</p>
+            <p className="github-username">{info.links.githubUsername}</p>
           </div>
           
           <div className="cta-action">
-            <a href={links.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary cta-btn">
+            <a href={info.links.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary cta-btn">
               <FaGithub /> Visit GitHub
             </a>
           </div>

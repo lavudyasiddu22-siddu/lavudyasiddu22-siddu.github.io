@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { portfolioData } from '../data/portfolioData';
+import { info } from '../data/info';
 import { FaGithub, FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container container">
         <div className="logo">
-          <a href="#home">SN<span className="text-accent">.</span></a>
+          <a href="#home">{info.name.split(' ')[0]}<span className="text-accent">.</span></a>
         </div>
 
         {/* Desktop Menu */}
@@ -44,11 +44,11 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-actions">
-          <a href={portfolioData.links.github} target="_blank" rel="noopener noreferrer" className="github-icon">
+          <a href={info.links.github} target="_blank" rel="noopener noreferrer" className="github-icon" aria-label="GitHub">
             <FaGithub size={24} />
           </a>
           
-          <button className="mobile-menu-btn" onClick={toggleMenu}>
+          <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Menu">
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
@@ -63,7 +63,7 @@ const Navbar = () => {
             </li>
           ))}
           <li>
-            <a href={portfolioData.links.github} target="_blank" rel="noopener noreferrer" className="mobile-github-btn">
+            <a href={info.links.github} target="_blank" rel="noopener noreferrer" className="mobile-github-btn">
               <FaGithub /> GitHub Profile
             </a>
           </li>

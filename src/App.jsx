@@ -7,11 +7,11 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Achievements from './components/Achievements'
 import GithubCTA from './components/GithubCTA'
+import ResumeCTA from './components/ResumeCTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
-  // Add Inter font
   useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
@@ -30,6 +30,7 @@ function App() {
         <Experience />
         <Achievements />
         <GithubCTA />
+        <ResumeCTA />
         <Contact />
       </main>
       <Footer />

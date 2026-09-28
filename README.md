@@ -1,16 +1,67 @@
-# React + Vite
+# Siddharth Nayak — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, premium, future-ready personal developer portfolio built with React and Vite. This portfolio showcases my projects, skills, and experience as a Computer Science Engineering student focused on AI and Full-Stack Development.
 
-Currently, two official plugins are available:
+## Features
+- **Premium Dark UI**: A sophisticated design utilizing a very dark navy/charcoal palette with electric blue accents.
+- **Glassmorphism**: Minimal and clean translucent elements.
+- **Responsive Layout**: Excellent scaling across mobile, tablet, and desktop devices.
+- **Data-Driven**: All content is centralized in `src/data/` for easy editing.
+- **Animations**: Smooth, professional animations using Framer Motion.
+- **Project Filtering**: Easily filter projects by technology or category.
+- **SEO Optimized**: Fully configured for indexability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: Vanilla CSS (CSS Modules approach)
+- **Icons**: React Icons
+- **Animations**: Framer Motion
 
-## React Compiler
+## Project Structure
+```text
+src/
+├── components/        # React UI components
+├── data/              # Centralized content (info, projects, skills)
+├── assets/            # Static assets
+├── App.jsx            # Main application layout
+├── index.css          # Global styles and CSS variables
+└── main.jsx           # Entry point
+public/
+├── resume/            # Place your resume PDF here
+└── favicon.svg
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local Setup
 
-## Expanding the Oxlint configuration
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+2. **Run development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Production build**:
+   ```bash
+   npm run build
+   ```
+
+## Deployment
+
+This project is configured for deployment to GitHub Pages.
+
+1. Push your code to the `main` branch.
+2. In your GitHub repository settings, go to **Pages**.
+3. Under **Build and deployment > Source**, select **GitHub Actions**.
+
+The provided `.github/workflows/deploy.yml` will automatically build and publish the portfolio.
+
+## Links
+- **Portfolio URL**: [https://lavudyasiddu22-siddu.github.io/](https://lavudyasiddu22-siddu.github.io/)
+- **GitHub**: [https://github.com/lavudyasiddu22-siddu](https://github.com/lavudyasiddu22-siddu)
+
+## License
+&copy; 2026 Siddharth Nayak. All rights reserved.

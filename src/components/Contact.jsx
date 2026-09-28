@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/portfolioData';
+import { info } from '../data/info';
 import { FaGithub, FaEnvelope, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
-  const { links } = portfolioData;
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleChange = (e) => {
@@ -14,10 +13,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Using mailto as a frontend-only solution
     const subject = `Portfolio Contact from ${formData.name}`;
     const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    window.location.href = `mailto:${links.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${info.links.email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -30,22 +28,23 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <h2>Let's Connect</h2>
+          <div className="title-underline"></div>
+          <p className="section-subtitle">I'm always interested in learning, building, collaborating, and exploring new opportunities.</p>
           
           <div className="contact-container">
             <div className="contact-info glass-card">
               <h3>Get In Touch</h3>
-              <p>Feel free to reach out for collaborations, opportunities, or just a quick hello.</p>
               
               <div className="social-links">
-                <a href={links.github} target="_blank" rel="noopener noreferrer" className="social-link">
+                <a href={info.links.github} target="_blank" rel="noopener noreferrer" className="social-link">
                   <span className="social-icon"><FaGithub /></span>
                   <span className="social-text">GitHub</span>
                 </a>
-                <a href={links.linkedin !== 'YOUR_LINKEDIN_URL_HERE' ? links.linkedin : '#'} target="_blank" rel="noopener noreferrer" className="social-link">
+                <a href={info.links.linkedin !== 'YOUR_LINKEDIN_URL_HERE' ? info.links.linkedin : '#'} target="_blank" rel="noopener noreferrer" className="social-link">
                   <span className="social-icon"><FaLinkedin /></span>
                   <span className="social-text">LinkedIn</span>
                 </a>
-                <a href={`mailto:${links.email}`} className="social-link">
+                <a href={`mailto:${info.links.email}`} className="social-link">
                   <span className="social-icon"><FaEnvelope /></span>
                   <span className="social-text">Email</span>
                 </a>

@@ -1,20 +1,8 @@
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/portfolioData';
-import { FaCode, FaLaptopCode, FaServer, FaDatabase, FaTools, FaRobot } from 'react-icons/fa';
+import { skillsCategories } from '../data/skills';
 import './Skills.css';
 
 const Skills = () => {
-  const { skills } = portfolioData;
-
-  const skillCategories = [
-    { title: "Programming", icon: <FaCode />, items: skills.programming },
-    { title: "Frontend", icon: <FaLaptopCode />, items: skills.frontend },
-    { title: "Backend", icon: <FaServer />, items: skills.backend },
-    { title: "Database", icon: <FaDatabase />, items: skills.database },
-    { title: "Tools", icon: <FaTools />, items: skills.tools },
-    { title: "AI / ML", icon: <FaRobot />, items: skills.ai },
-  ];
-
   return (
     <section id="skills" className="skills-section">
       <div className="container">
@@ -24,10 +12,11 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>My Skills</h2>
+          <h2>Technical Skills</h2>
+          <div className="title-underline"></div>
           
           <div className="skills-grid">
-            {skillCategories.map((category, index) => (
+            {skillsCategories.map((category, index) => (
               <motion.div 
                 key={index}
                 className="skill-category glass-card"
@@ -35,6 +24,7 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5, borderColor: 'rgba(6, 182, 212, 0.3)' }}
               >
                 <div className="category-header">
                   <span className="category-icon text-accent">{category.icon}</span>
@@ -43,7 +33,7 @@ const Skills = () => {
                 
                 <div className="skills-list">
                   {category.items.map((skill, skillIndex) => (
-                    <span key={skillIndex} className="skill-tag">
+                    <span key={skillIndex} className="skill-chip">
                       {skill}
                     </span>
                   ))}
